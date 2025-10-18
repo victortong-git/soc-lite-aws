@@ -1,4 +1,4 @@
-# SOC Lite C6 SecOps AI Agent - Security Operations Center (AWS Edition)
+# C6 SecOps AI Agent (AWS Edition) (Front-tier AI Agent component under C6 Agentic SOC platform)
 
 C6 SecOps AI Agent is a 24/7 resident security operations agent deployed on AWS, designed to automate security event analysis, triage, escalation, and defense.
 
@@ -487,7 +487,19 @@ See [DEPLOY_AWS.md](DEPLOY_AWS.md) for detailed troubleshooting guide.
 
 ## Support
 
-For issues or questions:
+### Reporting Issues
+
+Found a bug or have a feature request? Please log an issue on GitHub:
+- **GitHub Issues**: [Report a bug or request a feature](https://github.com/your-repo/soc-lite/issues)
+
+### Contact
+
+For questions, collaboration, or professional inquiries:
+- **LinkedIn**: [Victor Tong](https://www.linkedin.com/in/vsctong)
+
+### Troubleshooting
+
+For technical issues:
 1. Check CloudWatch logs for detailed error messages
 2. Review documentation in respective component directories
 3. Verify AWS credentials and permissions
