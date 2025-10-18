@@ -1,6 +1,14 @@
 # SOC Lite C6 SecOps AI Agent - Security Operations Center (AWS Edition)
 
-Full-stack web application for automated WAF security event analysis and threat detection built on AWS.
+C6 SecOps AI Agent is a 24/7 resident security operations agent deployed on AWS, designed to automate security event analysis, triage, escalation, and defense.
+
+## Why This Project?
+
+Web applications are subjected to tons of cyberattack events daily. AWS provides robust security systems to help protect web apps and backend APIs, but these systems generate a massive volume of security alerts that must be reviewed by security analysts.
+
+**The Challenge**: Not all AWS customers have the budget to hire dedicated security analysts to monitor and analyze these security alerts around the clock. This is a critical pain point—even with sophisticated security systems in place, the alerts still require human review.
+
+**The Solution**: I created this project for the hackathon to leverage AWS AI technologies and develop autonomous AI agents that run on AWS to perform first-tier security event review and analysis. The goal is to offload tedious and routine security alert review tasks, improve security escalation workflows, and enable faster incident response—all without requiring a full-time security operations team.
 
 ## Demo
 
@@ -10,13 +18,10 @@ Full-stack web application for automated WAF security event analysis and threat 
 
 ### Screenshots
 
-**Dashboard**
-![Dashboard](picture-dashboard_dark.png)
-
-**AWS WAF Integration**
+**AWS WAF Integration (Auto Update Block List)**
 ![AWS WAF](picture-AWS_WAF.png)
 
-**ServiceNow Integration**
+**ServiceNow Integration (Auto create incident)**
 ![ServiceNow](picture-ServiceNow.png)
 
 ## Project Structure
