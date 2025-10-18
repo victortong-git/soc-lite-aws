@@ -4,12 +4,11 @@ Full-stack web application for automated WAF security event analysis and threat 
 
 ## Demo
 
-**📺 [Watch Demo Video on YouTube](https://youtu.be/9vPwCU_oFmA)**
+[![Watch Demo Video](https://img.youtube.com/vi/9vPwCU_oFmA/maxresdefault.jpg)](https://youtu.be/9vPwCU_oFmA)
+
+**📺 [Watch on YouTube](https://youtu.be/9vPwCU_oFmA)**
 
 ### Screenshots
-
-**Architecture Diagram**
-![Architecture Diagram](picture-arch_diagram.png)
 
 **Dashboard**
 ![Dashboard](picture-dashboard_dark.png)
@@ -58,6 +57,10 @@ soc-lite/
 ├── scripts/                  # Deployment automation
 └── DEPLOY_AWS.md             # AWS deployment guide
 ```
+
+### Architecture Diagram
+
+![Architecture Diagram](picture-arch_diagram.png)
 
 ## Core Features
 
