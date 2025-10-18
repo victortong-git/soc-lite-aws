@@ -292,7 +292,7 @@ playwright-report/
 .playwright/
 screenshots/
 test-screenshots/
-*.png
+#*.png
 *.jpg
 
 # Test files (if you want to exclude certain test files)
