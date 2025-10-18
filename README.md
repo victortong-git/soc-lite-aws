@@ -490,7 +490,7 @@ See [DEPLOY_AWS.md](DEPLOY_AWS.md) for detailed troubleshooting guide.
 ### Reporting Issues
 
 Found a bug or have a feature request? Please log an issue on GitHub:
-- **GitHub Issues**: [Report a bug or request a feature](https://github.com/your-repo/soc-lite/issues)
+- **GitHub Issues**: [Report a bug or request a feature](https://github.com/victortong-git/soc-lite-aws/issues)
 
 ### Contact
 
