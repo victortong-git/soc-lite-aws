@@ -2,6 +2,24 @@
 
 Full-stack web application for automated WAF security event analysis and threat detection built on AWS.
 
+## Demo
+
+**📺 [Watch Demo Video on YouTube](https://youtu.be/9vPwCU_oFmA)**
+
+### Screenshots
+
+**Architecture Diagram**
+![Architecture Diagram](picture-arch_diagram.png)
+
+**Dashboard**
+![Dashboard](picture-dashboard_dark.png)
+
+**AWS WAF Integration**
+![AWS WAF](picture-AWS_WAF.png)
+
+**ServiceNow Integration**
+![ServiceNow](picture-ServiceNow.png)
+
 ## Project Structure
 
 ```
