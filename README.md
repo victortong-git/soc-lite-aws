@@ -2,6 +2,8 @@
 
 C6 SecOps AI Agent is a 24/7 resident security operations agent deployed on AWS, designed to automate security event analysis, triage, escalation, and defense.
 
+> **⚠️ NOTICE**: This repository is currently frozen for the AWS Hackathon submission and will not be updated until the hackathon results are published. Thank you for your understanding!
+
 ## Why This Project?
 
 Web applications are subjected to tons of cyberattack events daily. AWS provides robust security systems to help protect web apps and backend APIs, but these systems generate a massive volume of security alerts that must be reviewed by security analysts.
