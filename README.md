@@ -507,4 +507,4 @@ For technical issues:
 
 ## License
 
-This project is part of the SOC Lite security operations platform.
+This project is part of the C6 Agentic SOC platform.
