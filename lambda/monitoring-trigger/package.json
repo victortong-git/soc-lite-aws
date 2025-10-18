@@ -1,0 +1,17 @@
+{
+  "name": "soc-lite-monitoring-trigger",
+  "version": "1.0.0",
+  "description": "Lambda function to trigger daily monitoring agent",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "deploy": "npm run build && npm run package && npm run upload",
+    "build": "echo 'Installing dependencies...' && npm install --production",
+    "package": "zip -r function.zip index.mjs node_modules package.json",
+    "upload": "aws lambda update-function-code --function-name soc-lite-monitoring-trigger --zip-file fileb://function.zip"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-agentcore": "^3.900.0",
+    "pg": "^8.13.1"
+  }
+}

@@ -1,0 +1,15 @@
+# Deployment info files (contain AWS resource IDs)
+*-deployment.env
+deployment-*.env
+frontend-deployment.env
+lambda-deployment.env
+
+# Temporary files
+/tmp/
+*.tmp
+
+# Lambda deployment packages
+*.zip
+
+# CloudFront config temp files
+cf-*.json

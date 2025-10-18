@@ -1,0 +1,24 @@
+{
+  "name": "get-waf-alert",
+  "version": "1.0.0",
+  "description": "AWS Lambda function to retrieve WAF alerts and store in RDS PostgreSQL",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "waf",
+    "security",
+    "rds",
+    "postgresql"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.13.1",
+    "@aws-sdk/client-cloudwatch-logs": "^3.700.0"
+  }
+}

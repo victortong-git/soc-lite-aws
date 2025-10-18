@@ -1,0 +1,478 @@
+/* Import professional theme tokens first */
+@import "./styles/theme-tokens.css";
+
+/* Import theme utilities */
+@import "./styles/theme-utilities.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+ * BASE COLOR TOKENS & THEME VARIABLES
+ * (Imported from theme-tokens.css)
+ * ======================================== */
+
+:root {
+  /* Primary Brand Colors - Professional Blue Palette */
+  --color-primary-50: 239 248 255;
+  --color-primary-75: 229 243 255;
+  --color-primary-100: 219 237 254;
+  --color-primary-200: 186 230 253;
+  --color-primary-300: 125 211 252;
+  --color-primary-400: 56 189 248;
+  --color-primary-500: 14 165 233;
+  --color-primary-600: 2 132 199;
+  --color-primary-700: 3 105 161;
+  --color-primary-800: 7 89 133;
+  --color-primary-900: 12 74 110;
+  --color-primary-950: 8 47 73;
+
+  /* Professional Slate Neutrals */
+  --color-neutral-0: 255 255 255;
+  --color-neutral-25: 248 249 251;
+  --color-neutral-50: 241 243 246;
+  --color-neutral-75: 233 236 241;
+  --color-neutral-100: 226 230 237;
+  --color-neutral-150: 214 219 228;
+  --color-neutral-200: 203 209 220;
+  --color-neutral-250: 186 193 207;
+  --color-neutral-300: 148 158 178;
+  --color-neutral-400: 107 118 140;
+  --color-neutral-500: 71 82 103;
+  --color-neutral-600: 51 59 77;
+  --color-neutral-700: 37 43 56;
+  --color-neutral-800: 28 32 41;
+  --color-neutral-900: 20 23 30;
+  --color-neutral-950: 15 17 22;
+
+  /* State Colors */
+  --color-success-50: 240 253 244;
+  --color-success-100: 220 252 231;
+  --color-success-200: 187 247 208;
+  --color-success-300: 134 239 172;
+  --color-success-400: 74 222 128;
+  --color-success-500: 34 197 94;
+  --color-success-600: 22 163 74;
+  --color-success-700: 21 128 61;
+  --color-success-800: 22 101 52;
+  --color-success-900: 20 83 45;
+
+  --color-warning-50: 255 251 235;
+  --color-warning-100: 254 243 199;
+  --color-warning-200: 253 230 138;
+  --color-warning-300: 252 211 77;
+  --color-warning-400: 251 191 36;
+  --color-warning-500: 245 158 11;
+  --color-warning-600: 217 119 6;
+  --color-warning-700: 180 83 9;
+  --color-warning-800: 146 64 14;
+  --color-warning-900: 120 53 15;
+
+  --color-danger-50: 254 242 242;
+  --color-danger-100: 254 226 226;
+  --color-danger-200: 254 202 202;
+  --color-danger-300: 252 165 165;
+  --color-danger-400: 248 113 113;
+  --color-danger-500: 239 68 68;
+  --color-danger-600: 220 38 38;
+  --color-danger-700: 185 28 28;
+  --color-danger-800: 153 27 27;
+  --color-danger-900: 127 29 29;
+
+  --color-info-50: 239 246 255;
+  --color-info-100: 219 234 254;
+  --color-info-200: 191 219 254;
+  --color-info-300: 147 197 253;
+  --color-info-400: 96 165 250;
+  --color-info-500: 59 130 246;
+  --color-info-600: 37 99 235;
+  --color-info-700: 29 78 216;
+  --color-info-800: 30 64 175;
+  --color-info-900: 30 58 138;
+
+  /* Typography */
+  --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Monaco', 'Consolas', monospace;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* Spacing */
+  --spacing-0: 0rem;
+  --spacing-px: 0.0625rem;
+  --spacing-0-5: 0.125rem;
+  --spacing-1: 0.25rem;
+  --spacing-1-5: 0.375rem;
+  --spacing-2: 0.5rem;
+  --spacing-2-5: 0.625rem;
+  --spacing-3: 0.75rem;
+  --spacing-3-5: 0.875rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;
+  --radius-base: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Professional Shadows */
+  --shadow-xs: 0 1px 2px 0 rgb(71 82 103 / 0.05);
+  --shadow-sm: 0 2px 4px 0 rgb(71 82 103 / 0.08), 0 1px 2px 0 rgb(71 82 103 / 0.05);
+  --shadow-base: 0 4px 6px -1px rgb(71 82 103 / 0.10), 0 2px 4px -2px rgb(71 82 103 / 0.08);
+  --shadow-md: 0 8px 16px -4px rgb(71 82 103 / 0.10), 0 4px 8px -4px rgb(71 82 103 / 0.08);
+  --shadow-lg: 0 16px 32px -8px rgb(71 82 103 / 0.12), 0 8px 16px -8px rgb(71 82 103 / 0.10);
+  --shadow-xl: 0 24px 48px -12px rgb(71 82 103 / 0.15), 0 12px 24px -12px rgb(71 82 103 / 0.12);
+  --shadow-2xl: 0 32px 64px -16px rgb(71 82 103 / 0.18), 0 16px 32px -16px rgb(71 82 103 / 0.15);
+
+  --shadow-card: 0 2px 8px 0 rgb(71 82 103 / 0.08), 0 1px 4px 0 rgb(71 82 103 / 0.05);
+  --shadow-card-hover: 0 6px 16px 0 rgb(14 165 233 / 0.12), 0 2px 8px 0 rgb(71 82 103 / 0.08);
+  --shadow-card-focus: 0 0 0 3px rgb(14 165 233 / 0.15);
+  --shadow-button: 0 1px 3px 0 rgb(71 82 103 / 0.10), 0 1px 2px 0 rgb(71 82 103 / 0.06);
+  --shadow-button-hover: 0 4px 6px -1px rgb(71 82 103 / 0.10), 0 2px 4px -1px rgb(71 82 103 / 0.06);
+  --shadow-modal: 0 20px 40px -8px rgb(71 82 103 / 0.20), 0 8px 16px -8px rgb(71 82 103 / 0.12);
+  --shadow-dropdown: 0 8px 24px -4px rgb(71 82 103 / 0.15), 0 4px 8px -4px rgb(71 82 103 / 0.10);
+  --shadow-nav: 0 1px 3px 0 rgb(71 82 103 / 0.10), 0 1px 2px 0 rgb(71 82 103 / 0.06);
+  --shadow-nav-fixed: 0 4px 6px -1px rgb(71 82 103 / 0.10), 0 2px 4px -1px rgb(71 82 103 / 0.06);
+
+  /* Animation */
+  --duration-75: 75ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --duration-700: 700ms;
+  --duration-1000: 1000ms;
+
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+ * LIGHT THEME SEMANTIC TOKENS
+ * ======================================== */
+
+:root,
+:root.light {
+  /* Backgrounds */
+  --color-background: var(--color-neutral-25);
+  --color-background-secondary: var(--color-neutral-50);
+  --color-background-tertiary: var(--color-neutral-75);
+  --color-background-muted: var(--color-neutral-150);
+
+  /* Surfaces */
+  --color-surface: var(--color-neutral-0);
+  --color-surface-secondary: var(--color-neutral-75);
+  --color-surface-tertiary: var(--color-neutral-100);
+  --color-surface-hover: var(--color-neutral-100);
+  --color-surface-active: var(--color-primary-75);
+  --color-surface-elevated: var(--color-neutral-0);
+
+  /* Borders */
+  --color-border: 186 230 253;
+  --color-border-secondary: 219 237 254;
+  --color-border-muted: 219 237 254;
+  --color-border-strong: 125 211 252;
+
+  /* Text */
+  --color-text: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-tertiary: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-400);
+  --color-text-inverse: var(--color-neutral-0);
+
+  /* Interactive */
+  --color-interactive: var(--color-primary-600);
+  --color-interactive-hover: var(--color-primary-700);
+  --color-interactive-active: var(--color-primary-800);
+  --color-interactive-disabled: var(--color-neutral-300);
+
+  /* Focus */
+  --color-focus: var(--color-primary-500);
+  --color-focus-ring: var(--color-primary-500);
+
+  /* Scrollbar */
+  --color-scrollbar-thumb: var(--color-neutral-400);
+  --color-scrollbar-track: var(--color-neutral-100);
+
+  /* Buttons */
+  --color-button-primary: rgb(var(--color-primary-600));
+  --color-button-primary-hover: rgb(var(--color-primary-700));
+  --color-button-primary-active: rgb(var(--color-primary-800));
+  --color-button-primary-text: rgb(var(--color-neutral-0));
+  --color-button-primary-border: var(--color-primary-600);
+
+  --color-button-secondary: rgb(var(--color-neutral-100));
+  --color-button-secondary-hover: rgb(var(--color-neutral-150));
+  --color-button-secondary-active: rgb(var(--color-neutral-200));
+  --color-button-secondary-text: rgb(var(--color-neutral-900));
+  --color-button-secondary-border: var(--color-neutral-300);
+
+  --color-button-danger: rgb(var(--color-danger-600));
+  --color-button-danger-hover: rgb(var(--color-danger-700));
+  --color-button-danger-text: rgb(var(--color-neutral-0));
+  --color-button-danger-border: var(--color-danger-600);
+
+  --color-button-success: rgb(var(--color-success-600));
+  --color-button-success-hover: rgb(var(--color-success-700));
+  --color-button-success-text: rgb(var(--color-neutral-0));
+  --color-button-success-border: var(--color-success-600);
+
+  /* Cards */
+  --color-card-background: rgb(var(--color-surface));
+  --color-card-border: rgb(var(--color-border));
+
+  /* Inputs */
+  --color-input-background: rgb(var(--color-surface));
+  --color-input-border: rgb(var(--color-border));
+  --color-input-border-focus: rgb(var(--color-primary-500));
+  --color-input-text: rgb(var(--color-text));
+  --color-input-placeholder: rgb(var(--color-text-muted));
+
+  /* Navigation */
+  --color-nav-background: rgb(var(--color-surface));
+  --color-nav-border: rgb(var(--color-border-muted));
+  --color-nav-text: rgb(var(--color-text-secondary));
+  --color-nav-text-hover: rgb(var(--color-text));
+  --color-nav-text-active: rgb(var(--color-primary-700));
+  --color-nav-background-hover: rgb(var(--color-surface-hover));
+  --color-nav-background-active: rgb(var(--color-primary-75));
+
+  /* Status */
+  --color-status-new: rgb(var(--color-danger-50));
+  --color-status-new-text: rgb(var(--color-danger-700));
+  --color-status-new-border: rgb(var(--color-danger-200));
+
+  --color-status-investigating: rgb(var(--color-warning-50));
+  --color-status-investigating-text: rgb(var(--color-warning-700));
+  --color-status-investigating-border: rgb(var(--color-warning-200));
+
+  --color-status-resolved: rgb(var(--color-success-50));
+  --color-status-resolved-text: rgb(var(--color-success-700));
+  --color-status-resolved-border: rgb(var(--color-success-200));
+
+  /* Severity */
+  --color-severity-critical: rgb(var(--color-danger-600));
+  --color-severity-high: rgb(var(--color-warning-600));
+  --color-severity-medium: rgb(var(--color-warning-500));
+  --color-severity-low: rgb(var(--color-info-500));
+  --color-severity-info: rgb(var(--color-neutral-500));
+}
+
+/* ========================================
+ * DARK THEME SEMANTIC TOKENS
+ * ======================================== */
+
+:root.dark {
+  /* Backgrounds */
+  --color-background: var(--color-neutral-950);
+  --color-background-secondary: var(--color-neutral-900);
+  --color-background-tertiary: var(--color-neutral-800);
+  --color-background-muted: var(--color-neutral-800);
+
+  /* Surfaces */
+  --color-surface: var(--color-neutral-900);
+  --color-surface-secondary: var(--color-neutral-800);
+  --color-surface-tertiary: var(--color-neutral-700);
+  --color-surface-hover: var(--color-neutral-800);
+  --color-surface-active: var(--color-neutral-700);
+  --color-surface-elevated: var(--color-neutral-800);
+
+  /* Borders */
+  --color-border: 12 74 110;
+  --color-border-secondary: 7 89 133;
+  --color-border-muted: 8 47 73;
+  --color-border-strong: 3 105 161;
+
+  /* Text */
+  --color-text: var(--color-neutral-200);
+  --color-text-secondary: var(--color-neutral-300);
+  --color-text-tertiary: var(--color-neutral-400);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-600);
+  --color-text-inverse: var(--color-neutral-900);
+
+  /* Interactive */
+  --color-interactive: var(--color-primary-500);
+  --color-interactive-hover: var(--color-primary-400);
+  --color-interactive-active: var(--color-primary-300);
+  --color-interactive-disabled: var(--color-neutral-600);
+
+  /* Focus */
+  --color-focus: var(--color-primary-400);
+  --color-focus-ring: var(--color-primary-400);
+
+  /* Scrollbar */
+  --color-scrollbar-thumb: var(--color-neutral-600);
+  --color-scrollbar-track: var(--color-neutral-800);
+
+  /* Buttons */
+  --color-button-primary: rgb(var(--color-primary-500));
+  --color-button-primary-hover: rgb(var(--color-primary-400));
+  --color-button-primary-active: rgb(var(--color-primary-300));
+  --color-button-primary-text: rgb(var(--color-neutral-950));
+  --color-button-primary-border: var(--color-primary-500);
+
+  --color-button-secondary: rgb(var(--color-neutral-800));
+  --color-button-secondary-hover: rgb(var(--color-neutral-700));
+  --color-button-secondary-active: rgb(var(--color-neutral-600));
+  --color-button-secondary-text: rgb(var(--color-neutral-200));
+  --color-button-secondary-border: var(--color-neutral-600);
+
+  --color-button-danger: rgb(var(--color-danger-600));
+  --color-button-danger-hover: rgb(var(--color-danger-500));
+  --color-button-danger-text: rgb(var(--color-neutral-0));
+  --color-button-danger-border: var(--color-danger-600);
+
+  --color-button-success: rgb(var(--color-success-600));
+  --color-button-success-hover: rgb(var(--color-success-500));
+  --color-button-success-text: rgb(var(--color-neutral-0));
+  --color-button-success-border: var(--color-success-600);
+
+  /* Cards */
+  --color-card-background: rgb(var(--color-surface));
+  --color-card-border: rgb(var(--color-border));
+
+  /* Inputs */
+  --color-input-background: rgb(var(--color-surface));
+  --color-input-border: rgb(var(--color-border));
+  --color-input-border-focus: rgb(var(--color-primary-400));
+  --color-input-text: rgb(var(--color-text));
+  --color-input-placeholder: rgb(var(--color-text-muted));
+
+  /* Navigation */
+  --color-nav-background: rgb(var(--color-surface));
+  --color-nav-border: rgb(var(--color-border-muted));
+  --color-nav-text: rgb(var(--color-text-secondary));
+  --color-nav-text-hover: rgb(var(--color-text));
+  --color-nav-text-active: rgb(var(--color-primary-400));
+  --color-nav-background-hover: rgb(var(--color-surface-hover));
+  --color-nav-background-active: rgba(var(--color-primary-600), 0.2);
+
+  /* Status */
+  --color-status-new: rgba(var(--color-danger-900), 0.3);
+  --color-status-new-text: rgb(var(--color-danger-300));
+  --color-status-new-border: rgb(var(--color-danger-700));
+
+  --color-status-investigating: rgba(var(--color-warning-900), 0.3);
+  --color-status-investigating-text: rgb(var(--color-warning-300));
+  --color-status-investigating-border: rgb(var(--color-warning-700));
+
+  --color-status-resolved: rgba(var(--color-success-900), 0.3);
+  --color-status-resolved-text: rgb(var(--color-success-300));
+  --color-status-resolved-border: rgb(var(--color-success-700));
+
+  /* Severity */
+  --color-severity-critical: rgb(var(--color-danger-500));
+  --color-severity-high: rgb(var(--color-warning-500));
+  --color-severity-medium: rgb(var(--color-warning-400));
+  --color-severity-low: rgb(var(--color-info-400));
+  --color-severity-info: rgb(var(--color-neutral-400));
+}
+
+/* ========================================
+ * BASE STYLES
+ * ======================================== */
+
+@layer base {
+  * {
+    border-color: rgb(var(--color-border));
+  }
+
+  body {
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-text));
+    font-family: var(--font-family-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    min-height: 100vh;
+    transition: background-color var(--duration-200) var(--ease-in-out),
+                color var(--duration-200) var(--ease-in-out);
+  }
+
+  html {
+    height: 100%;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+/* ========================================
+ * ANIMATIONS
+ * ======================================== */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

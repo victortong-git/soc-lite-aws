@@ -1,0 +1,1 @@
+/aws2/soc-lite/database/rds/scripts/stop_db.sh

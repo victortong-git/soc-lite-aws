@@ -1,0 +1,23 @@
+{
+  "name": "smart-analysis-task-generator",
+  "version": "1.0.0",
+  "description": "Lambda function to automatically generate smart analysis tasks from unlinked WAF events",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lambda",
+    "eventbridge",
+    "smart-analysis",
+    "waf",
+    "security",
+    "automation"
+  ],
+  "author": "SOC Lite Team",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.11.3"
+  }
+}

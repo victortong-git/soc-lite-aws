@@ -1,0 +1,15 @@
+# Gateway Configuration Files
+# These files contain sensitive information and should not be committed
+
+# OAuth credentials (SENSITIVE!)
+.oauth_credentials
+
+# Gateway configuration (contains IDs and URLs)
+.gateway_config
+
+# Backup files
+*.backup
+*.bak
+
+# Test output
+test-output.log

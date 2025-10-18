@@ -1,0 +1,38 @@
+default_agent: secops_agent
+agents:
+  secops_agent:
+    name: secops_agent
+    entrypoint: secops_agent.py
+    platform: linux/amd64
+    container_runtime: docker
+    aws:
+      execution_role: arn:aws:iam::581425340084:role/AmazonBedrockAgentCoreSDKRuntime-us-east-1-c07010a437
+      execution_role_auto_create: false
+      account: '581425340084'
+      region: us-east-1
+      ecr_repository: 581425340084.dkr.ecr.us-east-1.amazonaws.com/bedrock-agentcore-secops_agent
+      ecr_auto_create: true
+      network_configuration:
+        network_mode: PUBLIC
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: secops_agent-5htKASCV4N
+      agent_arn: arn:aws:bedrock-agentcore:us-east-1:581425340084:runtime/secops_agent-5htKASCV4N
+      agent_session_id: null
+    codebuild:
+      project_name: bedrock-agentcore-secops_agent-builder
+      execution_role: arn:aws:iam::581425340084:role/AmazonBedrockAgentCoreSDKCodeBuild-us-east-1-8fd250891c
+      source_bucket: bedrock-agentcore-codebuild-sources-581425340084-us-east-1
+    memory:
+      mode: STM_ONLY
+      memory_id: secops_agent_mem-pFjGMyH4iq
+      memory_arn: arn:aws:bedrock-agentcore:us-east-1:581425340084:memory/secops_agent_mem-pFjGMyH4iq
+      memory_name: secops_agent_mem
+      event_expiry_days: 30
+      first_invoke_memory_check_done: false
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null

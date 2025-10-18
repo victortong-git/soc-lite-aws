@@ -1,0 +1,330 @@
+# ============================================
+# Node.js / JavaScript / TypeScript
+# ============================================
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnp.*
+.yarn/*
+
+# Build artifacts
+dist/
+build/
+out/
+.next/
+*.tsbuildinfo
+*.js.map
+
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# ============================================
+# Python
+# ============================================
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Python distribution / packaging
+*.egg
+*.egg-info/
+dist-python/
+build-python/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ============================================
+# Environment & Configuration
+# ============================================
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+
+# Deployment info files
+*-deployment.env
+deployment-*.env
+
+# Sensitive credential files
+*_api_key.txt
+*_credentials.txt
+*.pem
+*.key
+*.cert
+
+# Specific sensitive files in this project
+bedrock_api_key.txt
+dns_api_key.txt
+
+# AWS credentials
+.aws/credentials
+.aws/config
+
+# ============================================
+# AWS / Lambda
+# ============================================
+
+# Lambda deployment packages
+*.zip
+lambda-package/
+lambda-*.zip
+soc-lite-backend*.zip
+
+# AWS SAM
+.aws-sam/
+samconfig.toml
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# CloudFormation
+packaged.yaml
+packaged.yml
+
+# ============================================
+# Database
+# ============================================
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Database dumps
+*.sql.backup
+*.dump
+backup-*.sql
+db_backup_*.sql
+
+# Migration logs
+migration_*.log
+
+# ============================================
+# Logs
+# ============================================
+
+# Application logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Lambda logs
+lambda-logs/
+
+# ============================================
+# IDE & Editors
+# ============================================
+
+# VSCode
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Kiro
+.kiro/
+.kiro/*
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Claude Code (this tool)
+.claude/
+
+# Cursor
+.cursor/
+.cursorrules
+
+# ============================================
+# Operating System
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# ============================================
+# Temporary Files
+# ============================================
+
+# Temporary directories
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.cache
+*.old
+*.orig
+
+# ============================================
+# Frontend Specific (React + Vite)
+# ============================================
+
+# Vite
+.vite/
+dist-ssr/
+
+# Build outputs
+apps/frontend/dist/
+apps/frontend/build/
+
+# Playwright
+apps/frontend/test-results/
+apps/frontend/playwright-report/
+apps/frontend/.playwright/
+
+# ============================================
+# Backend Specific (Node.js + Express)
+# ============================================
+
+# Build outputs
+apps/backend/dist/
+apps/backend/build/
+
+# Lambda packages
+apps/backend/*.zip
+apps/backend/lambda-package/
+
+# ============================================
+# Agent Specific (Python + Bedrock)
+# ============================================
+
+# Agent build artifacts
+agentcore/runtime/**/lambda-package/
+agentcore/runtime/**/*.zip
+
+# Bedrock agent deployment artifacts (keep .yaml config)
+# agentcore/runtime/**/.bedrock_agentcore.yaml  # Keep this
+
+# Docker build artifacts
+agentcore/runtime/**/docker-compose.override.yml
+
+# ============================================
+# Testing
+# ============================================
+
+# Test outputs
+test-results/
+playwright-report/
+.playwright/
+screenshots/
+test-screenshots/
+*.png
+*.jpg
+
+# Test files (if you want to exclude certain test files)
+test-*.js
+test-*.mjs
+test-*.json
+
+# E2E test artifacts
+e2e-report/
+
+# ============================================
+# Documentation (Generated)
+# ============================================
+
+# Generated docs (keep authored docs like README.md, CLAUDE.md)
+docs/api-reference/
+docs/generated/
+
+# ============================================
+# Miscellaneous
+# ============================================
+
+# Lock files (optional - uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+
+# Response files
+response.json
+test-response.json
+
+# Git helper files
+.git-credentials
+

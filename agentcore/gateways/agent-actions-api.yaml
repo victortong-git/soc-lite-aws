@@ -1,0 +1,335 @@
+openapi: 3.0.0
+info:
+  title: SOC Lite Agent Actions API
+  description: Backend API for AgentCore SecOps Agent to perform actions via Gateway
+  version: 1.0.0
+servers:
+  - url: https://your-api-gateway-url.execute-api.us-east-1.amazonaws.com/prod
+    description: Production API Gateway
+  - url: http://localhost:3000
+    description: Local development server
+
+paths:
+  /api/agent-actions/update-analysis:
+    post:
+      summary: Update event with security analysis results
+      description: Called by Security Agent to store analysis results in database
+      operationId: updateAnalysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - event_id
+                - severity_rating
+              properties:
+                event_id:
+                  type: integer
+                  description: The WAF event ID to update
+                  example: 123
+                severity_rating:
+                  type: integer
+                  minimum: 0
+                  maximum: 5
+                  description: Severity rating (0-5)
+                  example: 4
+                security_analysis:
+                  type: string
+                  description: AI-generated security analysis
+                  example: "Blocked SQL injection attempt from suspicious IP"
+                follow_up_suggestion:
+                  type: string
+                  description: Recommended follow-up actions
+                  example: "Monitor for repeated attempts, consider IP blocking"
+                status:
+                  type: string
+                  enum: [open, investigating, closed]
+                  description: Event status
+                  example: "open"
+                analyzed_by:
+                  type: string
+                  description: Agent name that performed the analysis
+                  example: "secops-agent"
+      responses:
+        '200':
+          description: Analysis updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Analysis updated successfully"
+                  event:
+                    $ref: '#/components/schemas/WafEvent'
+        '400':
+          description: Bad request - missing required fields
+        '404':
+          description: Event not found
+        '500':
+          description: Server error
+
+  /api/agent-actions/send-notification:
+    post:
+      summary: Send SNS notification
+      description: Called by Triage Agent to send email/SNS notifications
+      operationId: sendNotification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - notification_type
+                - subject
+                - message
+              properties:
+                notification_type:
+                  type: string
+                  enum: [critical, monitoring]
+                  description: Type of notification (determines SNS topic)
+                  example: "critical"
+                subject:
+                  type: string
+                  description: Email subject line
+                  example: "🚨 Critical Security Alert - Severity 5/5"
+                message:
+                  type: string
+                  description: Email message body
+                  example: "CRITICAL SECURITY ALERT\n=====================\n..."
+                event_id:
+                  type: integer
+                  description: Related event ID (optional)
+                  example: 123
+      responses:
+        '200':
+          description: Notification sent successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Notification sent successfully"
+                  message_id:
+                    type: string
+                    example: "abc123-def456-..."
+                  event_id:
+                    type: integer
+                    example: 123
+        '400':
+          description: Bad request
+        '500':
+          description: Server error
+
+  /api/agent-actions/fetch-unprocessed:
+    get:
+      summary: Fetch unprocessed events
+      description: Called by Security Agent to get events needing analysis
+      operationId: fetchUnprocessedEvents
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of events to return
+          required: false
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+            maximum: 100
+      responses:
+        '200':
+          description: Unprocessed events retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  count:
+                    type: integer
+                    example: 5
+                  events:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/WafEvent'
+        '500':
+          description: Server error
+
+  /api/agent-actions/fetch-severity3:
+    get:
+      summary: Fetch severity 3 events for monitoring
+      description: Called by Monitor Agent to get medium severity events for pattern detection
+      operationId: fetchSeverity3Events
+      parameters:
+        - name: hours
+          in: query
+          description: Time window in hours to look back
+          required: false
+          schema:
+            type: integer
+            default: 24
+            minimum: 1
+            maximum: 168
+      responses:
+        '200':
+          description: Severity 3 events retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  count:
+                    type: integer
+                    example: 15
+                  hours:
+                    type: integer
+                    example: 24
+                  events:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/WafEvent'
+        '500':
+          description: Server error
+
+  /api/agent-actions/update-status:
+    post:
+      summary: Update event status
+      description: Called by Triage Agent to update event status
+      operationId: updateEventStatus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - event_id
+                - status
+              properties:
+                event_id:
+                  type: integer
+                  description: The WAF event ID to update
+                  example: 123
+                status:
+                  type: string
+                  enum: [open, investigating, closed]
+                  description: New status for the event
+                  example: "investigating"
+      responses:
+        '200':
+          description: Status updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Status updated successfully"
+                  event:
+                    $ref: '#/components/schemas/WafEvent'
+        '400':
+          description: Bad request - invalid status or missing fields
+        '404':
+          description: Event not found
+        '500':
+          description: Server error
+
+components:
+  schemas:
+    WafEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 123
+        request_id:
+          type: string
+          example: "abc123-def456"
+        timestamp:
+          type: string
+          format: date-time
+          example: "2025-10-09T12:00:00Z"
+        action:
+          type: string
+          enum: [ALLOW, BLOCK, COUNT, CAPTCHA, CHALLENGE]
+          example: "BLOCK"
+        rule_id:
+          type: string
+          example: "AWSManagedRulesCommonRuleSet"
+        rule_name:
+          type: string
+          example: "SQLi_BODY"
+        source_ip:
+          type: string
+          example: "192.168.1.100"
+        uri:
+          type: string
+          example: "/api/users"
+        http_method:
+          type: string
+          example: "POST"
+        country:
+          type: string
+          example: "US"
+        user_agent:
+          type: string
+          example: "Mozilla/5.0 ..."
+        severity_rating:
+          type: integer
+          minimum: 0
+          maximum: 5
+          nullable: true
+          example: 4
+        security_analysis:
+          type: string
+          nullable: true
+          example: "Blocked SQL injection attempt"
+        follow_up_suggestion:
+          type: string
+          nullable: true
+          example: "Monitor for repeated attempts"
+        status:
+          type: string
+          enum: [open, investigating, closed]
+          example: "open"
+        processed:
+          type: boolean
+          example: true
+        analyzed_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: "2025-10-09T12:05:00Z"
+        analyzed_by:
+          type: string
+          nullable: true
+          example: "secops-agent"
+        created_at:
+          type: string
+          format: date-time
+          example: "2025-10-09T12:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          example: "2025-10-09T12:05:00Z"

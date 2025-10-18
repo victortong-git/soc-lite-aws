@@ -1,0 +1,16 @@
+{
+  "name": "escalation-processor",
+  "version": "1.0.0",
+  "description": "Processes pending escalation events and sends SNS notifications",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sns": "^3.600.0",
+    "pg": "^8.11.3"
+  },
+  "author": "SOC-Lite",
+  "license": "MIT"
+}

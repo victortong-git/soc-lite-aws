@@ -1,0 +1,17 @@
+{
+  "name": "escalation-plugin-waf-blocklist",
+  "version": "1.0.0",
+  "description": "Lambda function to add malicious IPs to WAF blocklist IPSet based on escalations",
+  "main": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": ["waf", "blocklist", "security", "escalation"],
+  "author": "SOC-Lite",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-wafv2": "^3.490.0",
+    "pg": "^8.11.3"
+  }
+}
