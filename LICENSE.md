@@ -1,4 +1,4 @@
-# SOC Lite License
+# SOC Lite C6 SecOps AI Agent License
 
 ## Tech Preview / AWS Hackathon Version
 
