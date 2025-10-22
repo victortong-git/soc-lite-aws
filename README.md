@@ -428,7 +428,7 @@ curl https://your-api-endpoint/api/analysis-jobs \
 ## AWS Resources
 
 - **Region**: us-east-1
-- **RDS**: PostgreSQL 14.x (db.t3.micro)
+- **RDS**: PostgreSQL 17.x (db.t3.micro)
 - **Lambda**: Node.js 22.x runtime
 - **Bedrock**: AgentCore with Amazon Nova Micro
 - **S3**: Frontend hosting
